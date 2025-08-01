@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hora em Tempo Real</title>
+  <style>
+    body {
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+
+    #clock {
+      font-size: 4rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      background: #1e293b;
+      padding: 20px 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hora Atual</h1>
+  <div id="clock">00:00:00</div>
+  <footer>
+    Atualizado em tempo real &mdash; Fuso horário local
+  </footer>
+
+  <script>
+    function atualizarHora() {
+      const agora = new Date();
+      const horas = String(agora.getHours()).padStart(2, '0');
+      const minutos = String(agora.getMinutes()).padStart(2, '0');
+      const segundos = String(agora.getSeconds()).padStart(2, '0');
+      document.getElementById('clock').textContent = `${horas}:${minutos}:${segundos}`;
+    }
+
+    setInterval(atualizarHora, 1000);
+    atualizarHora(); // Atualiza imediatamente ao abrir
+  </script>
+</body>
+</html>
